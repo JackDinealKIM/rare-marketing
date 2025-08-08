@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RARE 마케팅 - 고객이 찾을 이유를 고민하는 분들과 함께합니다</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-title {
+            opacity: 0;
+        }
+        .hero-subtitle {
+            opacity: 0;
+        }
+        .hero-text {
+            opacity: 0;
+        }
+        .hero-search {
+            opacity: 0;
+        }
+        .reveal-element {
+            visibility: hidden;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes heroMove {
+            0% { transform: scale(1) translateX(0) translateY(0); }
+            25% { transform: scale(1.05) translateX(10px) translateY(-5px); }
+            50% { transform: scale(1.03) translateX(-5px) translateY(5px); }
+            75% { transform: scale(1.07) translateX(5px) translateY(-10px); }
+            100% { transform: scale(1) translateX(0) translateY(0); }
+        }
+        .hero-bg {
+            animation: heroMove 20s ease-in-out infinite;
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .nav-link.active {
+            color: #a855f7;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/20">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="text-xl sm:text-2xl font-bold gradient-text">RARE</div>
+            <div class="hidden md:flex space-x-6 lg:space-x-8">
+                <a href="#home" class="nav-link hover:text-purple-400 transition-all duration-300 text-sm lg:text-base">홈</a>
+                <a href="#about" class="nav-link hover:text-purple-400 transition-all duration-300 text-sm lg:text-base">소개</a>
+                <a href="#services" class="nav-link hover:text-purple-400 transition-all duration-300 text-sm lg:text-base">서비스</a>
+                <a href="#contact" class="nav-link hover:text-purple-400 transition-all duration-300 text-sm lg:text-base">문의</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
+    <div class="absolute inset-0 hero-bg">
+        <img src="image/hero.avif" alt="Hero Background" class="w-full h-full object-cover opacity-30">
+    </div>
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="container mx-auto px-6 relative z-10 text-center">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 text-white hero-title leading-tight">
+            <span class="typing-text"></span>
+        </h1>
+        <h2 class="text-lg sm:text-xl md:text-2xl lg:text-4xl text-purple-200 mb-6 md:mb-8 hero-subtitle">
+            마케팅 소개서
+        </h2>
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-purple-100 mb-8 md:mb-12 max-w-4xl mx-auto hero-text leading-relaxed px-4">
+            글을 써주는 대행사가 아닙니다.<br class="hidden sm:block">
+            <span class="sm:hidden"> </span>고객이 결정하는 이유를 고민하는 분들과 함께 합니다.
+        </p>
+        <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-full p-2 mb-8 hero-search">
+            <div class="flex items-center">
+                <input
+                        type="text"
+                        placeholder="RARE마케팅 더 알아보기"
+                        class="flex-1 bg-transparent px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-white placeholder-purple-300 outline-none"
+                >
+                <button class="bg-purple-600 hover:bg-purple-700 px-4 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold text-sm sm:text-base transition-colors">
+                    검색
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 floating">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-6 md:mb-8 reveal-element px-4">RARE 마케팅 소개</h2>
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto reveal-element px-4">
+                왜 이것이어야 하는지 설명할 수 있나요?
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div class="reveal-element">
+                <div class="glass-effect rounded-2xl p-6 md:p-8">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 md:mb-6 gradient-text">RARE마케팅은</h3>
+                    <p class="text-lg sm:text-xl text-gray-300 mb-4 md:mb-6 leading-relaxed">
+                        고객이 '찾아올 수밖에 없는 이유'를 함께 찾습니다.
+                    </p>
+                    <div class="space-y-3 md:space-y-4 text-gray-400">
+                        <p class="reveal-element text-sm sm:text-base">• 잡지 에디터 3년 · 광고대행사 3년</p>
+                        <p class="reveal-element text-sm sm:text-base">• 전자책 &lt;ZERO부터글쓰기&gt; 출간</p>
+                        <p class="reveal-element text-sm sm:text-base">• 전문직 · 고관여 업종 특화</p>
+                        <p class="reveal-element text-sm sm:text-base">• 자사 브랜드 채널운영으로 계약 수입</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-element">
+                <div class="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto rounded-2xl overflow-hidden relative">
+                    <img src="image/profile.png" alt="마케팅 대표 이승희" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6">
+                        <div class="text-center">
+                            <div class="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">RARE</div>
+                            <div class="text-sm md:text-lg text-purple-200">마케팅 대표 이승희</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Reviews Section -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center gradient-text mb-12 md:mb-16 reveal-element px-4">
+            RARE 마케팅 실제 고객 후기
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+            <div class="glass-effect rounded-2xl p-6 md:p-8 reveal-element">
+                <div class="flex mb-4">
+                    <span class="text-yellow-400 text-lg">★★★★★</span>
+                </div>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    사실 업종 하면서 블로그 관리를 꾸준히 한다는 건 쉽지 않아서 일껄니다. 그것도 양질의 내용이 포함된 글을 쓰는 것 더더욱 어렵죠.
+                    하지만 이 분과 함께 일을 하게 되면서 그 고민이 한순간에 사라졌습니다.
+                </p>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-6 md:p-8 reveal-element">
+                <div class="flex mb-4">
+                    <span class="text-yellow-400 text-lg">★★★★★</span>
+                </div>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    운영 방침을 위해 같이 고민해주시고, 힘써주시고 진심 최고세요.
+                    또한 진솔하게 마음을 나눌 수 있어 더욱 신뢰가 가는 분입니다.
+                </p>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-6 md:p-8 reveal-element">
+                <div class="flex mb-4">
+                    <span class="text-yellow-400 text-lg">★★★★★</span>
+                </div>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    직거나이함 부씨 수개월째 블로그작업 함께 하고 있습니다. 매번 만나서 운영안도 볼품하게 짜주시고 아주 세세하게이신니다!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center gradient-text mb-12 md:mb-16 reveal-element px-4">
+            브랜딩 전략수립
+        </h2>
+
+        <div class="text-center mb-12 md:mb-16">
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto reveal-element px-4 leading-relaxed">
+                브랜드의 철학, 서비스 방식, 핵심 차별점을 고객의 언어로 전환합니다.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8 service-cards">
+            <div class="text-center reveal-element">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto rounded-full gradient-bg flex items-center justify-center mb-4 md:mb-6">
+                    <span class="text-white font-bold text-xs sm:text-sm">핵심<br>차별점</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">핵심 차별점</h3>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">다른 곳이 아닌 '이곳'에서 사는 차별점을 전략적으로 분석하고 기획합니다.</p>
+            </div>
+
+            <div class="text-center reveal-element">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto rounded-full bg-purple-800 flex items-center justify-center mb-4 md:mb-6">
+                    <span class="text-white font-bold text-sm sm:text-base">철학</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">철학</h3>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">고객이 가지고 있는 철학을 글로 다듬어 고객의 언어로 전환합니다.</p>
+            </div>
+
+            <div class="text-center reveal-element">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto rounded-full bg-purple-600 flex items-center justify-center mb-4 md:mb-6">
+                    <span class="text-white font-bold text-xs sm:text-sm">톤앤<br>매너</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">톤앤매너</h3>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">고객이 가장 선호하는 한 줄에서부터 행동으로 이어지는 전략을 구체적으로 수립합니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center gradient-text mb-12 md:mb-16 reveal-element px-4">
+            대행 프로세스
+        </h2>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 process-cards">
+            <div class="text-center reveal-element">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mx-auto rounded-full gradient-bg flex items-center justify-center mb-4 md:mb-6">
+                    <span class="text-white font-bold text-lg sm:text-xl md:text-2xl">01</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold gradient-text mb-3 md:mb-4">블로그 방향 논의</h3>
+                <p class="text-sm sm:text-base text-gray-400 leading-relaxed">브랜딩 컨셉, 톤앤매너, 서비스를 파악하기 위해 사전에 블로그 방향성에 대해 논의를 가집니다.</p>
+            </div>
+
+            <div class="text-center reveal-element">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mx-auto rounded-full gradient-bg flex items-center justify-center mb-4 md:mb-6">
+                    <span class="text-white font-bold text-lg sm:text-xl md:text-2xl">02</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold gradient-text mb-3 md:mb-4">키워드 기획</h3>
+                <p class="text-sm sm:text-base text-gray-400 leading-relaxed">블로그 지수와 상위노출 현황을 진단하고 키워드 전략을 수립합니다.</p>
+            </div>
+
+            <div class="text-center reveal-element">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mx-auto rounded-full gradient-bg flex items-center justify-center mb-4 md:mb-6">
+                    <span class="text-white font-bold text-lg sm:text-xl md:text-2xl">03</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold gradient-text mb-3 md:mb-4">포스팅 발행 및 관리</h3>
+                <p class="text-sm sm:text-base text-gray-400 leading-relaxed">기획한 일정에 맞춘 월별 포스팅을 진행합니다. KEY 컨텐츠는 별도로 사전 가이드라인을 요청드립니다.</p>
+            </div>
+
+            <div class="text-center reveal-element">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mx-auto rounded-full gradient-bg flex items-center justify-center mb-4 md:mb-6">
+                    <span class="text-white font-bold text-lg sm:text-xl md:text-2xl">04</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold gradient-text mb-3 md:mb-4">월별 성과 분석</h3>
+                <p class="text-sm sm:text-base text-gray-400 leading-relaxed">대행이 마무리되면 월별 통계를 바탕으로 성과를 분석하고 다음 회차 개선전략을 수립합니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-6 md:mb-8 reveal-element px-4">결과로 보여드립니다</h2>
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 md:mb-16 reveal-element px-4">RARE 마케팅은 이런 것을 하지 않습니다</p>
+
+        <div class="max-w-4xl mx-auto mb-12 md:mb-16">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                <div class="text-left space-y-3 md:space-y-4">
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">• 패키지 컨텐츠를 유도하지 않습니다.</p>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">• 제대로 된 업계 공부 없이 저렴기 글을 쓰지 않습니다.</p>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">• 대표님과 협의없이 무성의한 컨텐츠를 발행하지 않습니다.</p>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">• 단순히 수치만 보고 키워드를 기획하지 않습니다.</p>
+                </div>
+
+                <div class="text-left space-y-3 md:space-y-4">
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">• 자신만의 철학과 가치관이 뚜렷하신 대표님</p>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">• 단순히 글만 올리는 작업이 아니라 마케팅을 이해하고 계신 분</p>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">• 자료나 신뢰 방향에 대해 적극적으로 협조해주시는 분</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl sm:text-3xl font-bold gradient-text mb-6 md:mb-8 px-4">좋은 인연이 되기를 희망합니다</h3>
+            <p class="text-lg sm:text-xl text-gray-300 mb-8 md:mb-12">감사합니다</p>
+            <button class="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 px-8 sm:px-12 py-3 sm:py-4 rounded-full text-white font-bold text-lg sm:text-xl transition-all transform hover:scale-105">
+                문의하기
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="py-16 bg-black border-t border-purple-500/20">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div>
+                <div class="text-3xl font-bold gradient-text mb-4">RARE</div>
+                <p class="text-gray-400 mb-4">고객이 찾을 이유를 고민하는 분들과 함께합니다</p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">서비스</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li>브랜딩 전략수립</li>
+                    <li>블로그 마케팅</li>
+                    <li>키워드 기획</li>
+                    <li>컨텐츠 전략</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">연락처</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p>RARE 마케팅</p>
+                    <p>대표: 이승희</p>
+                    <p>Email: rare@marketing.com</p>
+                    <p>Tel: 010-0000-0000</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-purple-500/20 mt-12 pt-8 text-center">
+            <p class="text-gray-500">&copy; 2025 RARE 마케팅. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Page loaded successfully');
+
+        // Initialize ScrollReveal
+        const sr = ScrollReveal({
+            distance: '60px',
+            duration: 2000,
+            delay: 200,
+            reset: false
+        });
+
+        // Typing animation function
+        function typeWriter(element, text, speed = 100) {
+            element.innerHTML = '';
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    // Start other animations after typing is complete
+                    startHeroAnimations();
+                }
+            }
+            type();
+        }
+
+        // Hero section animations with Anime.js
+        function startHeroAnimations() {
+            anime.timeline({
+                easing: 'easeOutExpo',
+                duration: 1000
+            })
+                .add({
+                    targets: '.hero-subtitle',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                }, 200)
+                .add({
+                    targets: '.hero-text',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 800,
+                }, '-=400')
+                .add({
+                    targets: '.hero-search',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    scale: [0.9, 1],
+                    duration: 800,
+                }, '-=200');
+        }
+
+        // Initialize hero title animation
+        setTimeout(() => {
+            anime({
+                targets: '.hero-title',
+                opacity: [0, 1],
+                translateY: [50, 0],
+                scale: [0.8, 1],
+                duration: 800,
+                complete: function() {
+                    const typingElement = document.querySelector('.typing-text');
+                    typeWriter(typingElement, 'RARE', 150);
+                }
+            });
+        }, 500);
+
+        // ScrollReveal animations for sections
+        sr.reveal('.reveal-element', {
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1000,
+            delay: 200,
+            interval: 200,
+            beforeReveal: function (el) {
+                el.style.visibility = 'visible';
+            }
+        });
+
+        // Service cards stagger animation
+        sr.reveal('.service-cards .reveal-element', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            interval: 300,
+            beforeReveal: function (el) {
+                el.style.visibility = 'visible';
+            }
+        });
+
+        // Process cards stagger animation
+        sr.reveal('.process-cards .reveal-element', {
+            origin: 'top',
+            distance: '30px',
+            duration: 800,
+            interval: 200,
+            beforeReveal: function (el) {
+                el.style.visibility = 'visible';
+            }
+        });
+
+        // Navigation active state management
+        function updateActiveNavLink() {
+            const sections = [
+                { id: 'home', element: document.getElementById('home') },
+                { id: 'about', element: document.getElementById('about') },
+                { id: 'services', element: document.getElementById('services') },
+                { id: 'contact', element: document.getElementById('contact') }
+            ];
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const scrollPosition = window.scrollY + 120; // 헤더 높이 고려
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.body.scrollHeight;
+
+            let currentSection = 'home';
+            let maxTop = 0;
+
+            // 페이지 하단 근처(80% 이상 스크롤)에 있으면 마지막 섹션 활성화
+            const scrollPercent = (window.scrollY + windowHeight) / documentHeight;
+            if (scrollPercent > 0.8) {
+                currentSection = 'contact';
+            } else {
+                // 각 섹션을 순회하면서 현재 스크롤 위치에 가장 가까운 섹션 찾기
+                sections.forEach(section => {
+                    if (section.element) {
+                        const sectionTop = section.element.offsetTop;
+
+                        // 스크롤 위치가 섹션 시작점을 지나쳤고, 이전 섹션보다 더 아래쪽에 있다면
+                        if (scrollPosition >= sectionTop && sectionTop >= maxTop) {
+                            currentSection = section.id;
+                            maxTop = sectionTop;
+                        }
+                    }
+                });
+            }
+
+            // 모든 링크에서 active 클래스 제거 후 현재 섹션에만 추가
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Throttle function for better performance
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Update active nav link on scroll with throttle
+        window.addEventListener('scroll', throttle(updateActiveNavLink, 100));
+
+        // Initial active state
+        setTimeout(updateActiveNavLink, 100);
+
+        // Enhanced hover effects with Anime.js
+        document.querySelectorAll('.glass-effect').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    translateY: -10,
+                    scale: 1.02,
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+
+            card.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    translateY: 0,
+                    scale: 1,
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+
+        // Button hover animations
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    scale: 1.05,
+                    duration: 200,
+                    easing: 'easeOutCubic'
+                });
+            });
+
+            button.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    scale: 1,
+                    duration: 200,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>
